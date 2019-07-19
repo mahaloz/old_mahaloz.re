@@ -99,9 +99,6 @@ author:
   location         : "Arizona State University"
   email            : "mahaloz@asu.edu"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:mahaloz@asu.edu" 
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://zionbasque.com"
