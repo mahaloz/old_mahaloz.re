@@ -2,10 +2,10 @@
 main:
   - title: "Guide"
     url: /year-archive/
-    title: "About"
+  - title: "About"
     url: /year-archive/
-    title: "Posts"
-    url: /year-archive/
+  - title: "Posts"
+    url: /category-arch/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"

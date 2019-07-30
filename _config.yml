@@ -12,7 +12,7 @@ name                     : "mahaloz"
 description              : "Another technical blog."
 url                      : "https://mahaloz.re"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-teaser                   : "/assets/images/500x300.png"
+teaser                   : "/assets/images/croped_KU.png"
 #logo                     : "/assets/images/88x88.png"
 words_per_minute         : 200
 comments:
