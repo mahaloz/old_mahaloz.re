@@ -1,6 +1,6 @@
 ---
 title: "Posts by Category"
-layout: categories
+layout: wargames-arch
 permalink: /category-arch/
 author_profile: true
 ---
