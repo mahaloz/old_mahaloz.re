@@ -1,3 +1,10 @@
+---
+title: "Layout: Post with Nested Table of Contents"
+tags:
+  - table of contents
+toc: true
+---
+
 ## Source: [Markdown Test Page](https://github.com/fullpipe/markdown-test-page)
 
 # <a name="top"></a>Markdown Test Page
