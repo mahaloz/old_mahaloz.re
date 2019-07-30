@@ -1,11 +1,11 @@
 # main links
 main:
-  - title: "Guide"
-    url: /year-archive/
-  - title: "About"
-    url: /year-archive/
-  - title: "Posts"
-    url: /category-arch/
+  - title: "Wargames"
+    url: /wargames/
+  - title: "CTFs"
+    url: /ctfs/
+  - title: "Research"
+    url: /research/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
