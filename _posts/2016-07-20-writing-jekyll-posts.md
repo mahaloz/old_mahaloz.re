@@ -4,7 +4,7 @@ tags:
   - table of contents
 toc: true
 category:
-  - Wargames
+  - CTF
 ---
 
 ## Source: [Markdown Test Page](https://github.com/fullpipe/markdown-test-page)
