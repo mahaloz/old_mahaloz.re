@@ -6,6 +6,8 @@ main:
     url: /ctfs/
   - title: "Research"
     url: /research/
+  - title: "About"
+    url: /about/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
