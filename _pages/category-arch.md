@@ -1,6 +1,6 @@
 ---
 title: "Posts by Category"
-layout: wargames-arch
-permalink: /category-arch/
+layout: research
+permalink: /research/
 author_profile: true
 ---
