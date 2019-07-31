@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: "About"
-layout: single
+layout: posts
 excerpt: "Who the hell is mahaloz?"
 ---
 Hi, I'm [Zion Basque](https://zionbasque.com) a native Hawaiian hacker, 
