@@ -1,6 +1,5 @@
 ---
 layout: archive
-category: research
 ---
 {% for post in site.categories.[page.category] %}
   <h2><a href=""></a></h2>
@@ -9,5 +8,4 @@ category: research
 
 {% for post in site.categories.research %}
     {% include archive-single.html type=page.entries_layout %} 
-    <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
