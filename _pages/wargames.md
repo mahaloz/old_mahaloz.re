@@ -1,8 +1,7 @@
 ---
-title: "Posts by Category"
-layout: category
+title: "Wargame Posts"
+layout: single-category
 permalink: /wargames/
 category: wargames
 author_profile: true
 ---
-# SO DID THIS WORK?

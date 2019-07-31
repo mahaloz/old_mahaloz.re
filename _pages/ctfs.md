@@ -1,8 +1,7 @@
 ---
-title: "Posts by Category"
-layout: categories
+title: "CTF Posts"
+layout: single-category
 permalink: /ctfs/
 category: ctfs
 author_profile: true
 ---
-# SO DID THIS WORK?
