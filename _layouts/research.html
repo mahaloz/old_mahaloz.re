@@ -2,13 +2,12 @@
 layout: archive
 category: research
 ---
-<h1>Simple Category Pages with vanilla Jekyll</h1>
-
 {% for post in site.categories.[page.category] %}
   <h2><a href=""></a></h2>
   <p></p>
 {% endfor %}
 
 {% for post in site.categories.research %}
- <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% include archive-single.html type=page.entries_layout %} 
+    <li><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
