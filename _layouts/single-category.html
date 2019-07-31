@@ -2,10 +2,5 @@
 layout: archive
 ---
 {% for post in site.categories.[page.category] %}
-  <h2><a href=""></a></h2>
-  <p></p>
-{% endfor %}
-
-{% for post in site.categories.research %}
     {% include archive-single.html type=page.entries_layout %} 
 {% endfor %}
