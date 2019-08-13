@@ -1,5 +1,5 @@
 ---
-title: "pwnable.kr: bof [no-markdown]"
+title: "pwnable.kr: collision [no-markdown]"
 tags:
   - table of contents
 toc: true
