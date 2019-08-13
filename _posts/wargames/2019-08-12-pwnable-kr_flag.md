@@ -1,5 +1,5 @@
 ---
-title: "pwnable.kr: flag [no-markdown]"
+title: "pwnable.kr: flag writeup"
 tags:
   - table of contents
 toc: true

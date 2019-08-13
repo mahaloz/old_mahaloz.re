@@ -1,5 +1,5 @@
 ---
-title: "pwnable.kr: bof [no-markdown]"
+title: "pwnable.kr: bof writeup"
 tags:
   - table of contents
 toc: true
