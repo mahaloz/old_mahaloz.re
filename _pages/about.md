@@ -7,7 +7,7 @@ excerpt: "Who the hell is mahaloz?"
 Hi, I'm [Zion Basque](https://zionbasque.com) a native Hawaiian hacker, 
 better known as mahaloz. I'm a [ctf](https://ctftime.org/about/) player 
 with [@Shellphish](https://twitter.com/shellphish?lang=en) and the
-captain of [@pwndevils](https://pwndevils.com/). I love reverse engineering
+captain of [@pwndevils](https://pwndevils.com/). I love reverse engineering,
 pwning, exploration robotics, and computers in general. I also so happen to be a
 researcher in the Arizona State University [SEFCOM](https://ctftime.org/about/)
 research lab. My research also focuses on reverse engineering, pwning, and
