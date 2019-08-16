@@ -7,13 +7,14 @@ category:
   - wargames
 ---
 
-*NOTE TO READER*: I wrote this writeup before I started writing using MarkDown
-(yeah that was a long time ago). In the case that anything is inaccurate, sorry.
-Also the code on this post is a picture. So sorry again :p. There should only be
-around 5 of these. - mahaloz
 
 Back at the hack game again, lets go. This time around we are provided an ssh login again for  `passcode@pwnable.kr -p2222` with password `guest`. The hint also states: “Mommy told me to make a passcode based login system. My initial C code was compiled without any error! Well, there was some compiler warning, but who cares about that?” 
 					
+*NOTE TO READER*: I wrote this writeup before I started writing using MarkDown
+(yeah that was a long time ago). In the case that anything is inaccurate, sorry.
+Also the code on this post is a picture. So sorry again :p. There should only be
+around 5 of these.
+
 Just from the hint, we probably are going to want to compile whatever code we get so we can see the warning for ourselves. First lets run the program with some input as usual.
 
 ![pwnable-kr_passcode_1.png](/assets/images/wargames/pwnable-kr_passcode/pwnable-kr_passcode_1.png)

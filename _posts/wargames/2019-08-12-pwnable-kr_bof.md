@@ -6,13 +6,13 @@ toc: true
 category:
   - wargames
 ---
+This challenge is centered around two downloadable files: [bof](http://pwnable.kr/bin/bof) and [bof](http://pwnable.kr/bin/bof.c). With a netcat connection of `pwnable.kr` on port 9000. The hint states: `Nana told me that buffer overflow is one of the most common software vulnerability. Is that true?`
+
 
 *NOTE TO READER*: I wrote this writeup before I started writing using MarkDown
 (yeah that was a long time ago). In the case that anything is inaccurate, sorry.
 Also the code on this post is a picture. So sorry again :p. There should only be
-around 5 of these. - mahaloz
-
-This challenge is centered around two downloadable files: [bof](http://pwnable.kr/bin/bof) and [bof](http://pwnable.kr/bin/bof.c). With a netcat connection of `pwnable.kr` on port 9000. The hint states: `Nana told me that buffer overflow is one of the most common software vulnerability. Is that true?`
+around 5 of these.
 
 Continuing down the road to bro hacker we come across our next pwning problem: bof. From what I’ve learned in basic programming classes for C programming, if you don’t know C, I highly suggest learning it, bof probably is short for buffer overflow—the oldest hack in the book. Buffer overflows concept can be simplified to a simple pond analogy. Imagine you have two ponds in succession.
 

@@ -7,12 +7,13 @@ category:
   - wargames
 ---
 
+
+Similar to last problem, we are given a binary to download and exploit, but this time we don’t have any source code. The download can be found at http://pwnable.kr/bin/flag. The hint states: “Papa brought me a packed present! let's open it.” 
+
 *NOTE TO READER*: I wrote this writeup before I started writing using MarkDown
 (yeah that was a long time ago). In the case that anything is inaccurate, sorry.
 Also the code on this post is a picture. So sorry again :p. There should only be
-around 5 of these. - mahaloz
-
-Similar to last problem, we are given a binary to download and exploit, but this time we don’t have any source code. The download can be found at http://pwnable.kr/bin/flag. The hint states: “Papa brought me a packed present! let's open it.” 
+around 5 of these.
 
 Lets try and run the program with some normal input, aAnd some really long input.
 

@@ -7,12 +7,13 @@ category:
   - wargames
 ---
 
+
+Picking up where we left on the pwnable.kr grind, we continue onto the next pwnable problem labeled ‘collision.’ 
+
 *NOTE TO READER*: I wrote this writeup before I started writing using MarkDown
 (yeah that was a long time ago). In the case that anything is inaccurate, sorry.
 Also the code on this post is a picture. So sorry again :p. There should only be
-around 5 of these. - mahaloz 
-
-Picking up where we left on the pwnable.kr grind, we continue onto the next pwnable problem labeled ‘collision.’ 
+around 5 of these.
 
 ![pwnable-kr_collision/pwnable-kr_collision_1.png](/assets/images/wargames/pwnable-kr_collision/pwnable-kr_collision_1.png)
 
