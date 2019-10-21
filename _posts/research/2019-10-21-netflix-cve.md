@@ -1,9 +1,8 @@
 ---
 title: "Netflix: CVE-2019-10028"
 tags:
-  - table of contents
-toc: true
 category:
+classes: wide
   - research
 ---
 
