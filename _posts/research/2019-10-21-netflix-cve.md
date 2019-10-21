@@ -36,7 +36,7 @@ communicate with an iPhone--making this an interesting target.
 
 ## Recon
 Looking at the dial-reference readme, it says: "The DIAL client uses CURL to
-send HTTP REST commands to the DIAL server,", which is right up Mayhem's alley
+send HTTP request commands to the DIAL server,", which is right up Mayhem's alley
 of operation. Quickly reversing some of the dial-server code shows that the
 server listens over a constant IP Address and port.
 
