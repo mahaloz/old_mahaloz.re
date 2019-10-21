@@ -1,5 +1,5 @@
 ---
-title: "pwnable.kr: flag writeup"
+title: "pwnable.kr: passcode writeup"
 tags:
   - table of contents
 toc: true
