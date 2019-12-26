@@ -10,9 +10,9 @@ source project had some fruitful Mayhem results. The Netflix Dial Server
 located in the Netflix Github repository had a remote out-of-bounds read which
 Mayhem discovered. 
 
-since many other fuzz testers are unable to fuzz network communication in an
-efficient manner. This usually means that webservers will be full of bugs that
-Mayhem can find.
+Since many other fuzz testers are unable to fuzz network communication in an
+efficient manner, most webserver-like progams are full of bugs which Mayhem can
+trigger. 
 
 ## Background 
 In early 2013 Netflix was working on a project called Discovery And Launch,
