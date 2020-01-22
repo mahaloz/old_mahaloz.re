@@ -1,6 +1,8 @@
 ---
 title: "Netflix: CVE-2019-10028"
 classes: wide
+category:
+	- research
 ---
 
 # Unleashing Mayhem on Netflix
