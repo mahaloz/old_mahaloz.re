@@ -3,7 +3,7 @@ main:
   - title: "Wargames"
     url: /wargames/
   - title: "CTFs"
-    url: /ctfs/
+    url: /ctf/
   - title: "Research"
     url: /research/
   - title: "About"
