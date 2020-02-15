@@ -1,5 +1,5 @@
 ---
-title: "HackTM 2020: Hackdex Writeup (RE, Beginner Friendly)"
+title: "HackTM 2020: Hackdex Writeup (RE)"
 classes: wide
 category:
   - ctf
