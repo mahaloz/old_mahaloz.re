@@ -14,7 +14,7 @@ research lab. My research also focuses on reverse engineering, pwning, and
 machine learning with respects to fuzzing. My research advisor is the renowned
 [Dr. Yan Shoshitaishvili](https://www.yancomm.net/).
 
-![me](/assets/images/pixel_zion_full.jpg)
+![me](/assets/images/pixel_zion_profile.jpg)
 
 This is my technical blog. If you want to learn more about my personal life,
 check out my personal blog [@thelandofzion.com](https://thelandofzion.com). If you
