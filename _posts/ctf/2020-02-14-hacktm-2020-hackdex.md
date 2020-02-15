@@ -459,3 +459,9 @@ if __name__ == "__main__":
 
 The full solve script can be found
 [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/hacktm-20)
+
+
+## Thanks where thanks is due
+
+Big thanks to @fish for the help in this solve!
+
