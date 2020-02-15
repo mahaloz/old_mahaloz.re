@@ -1,5 +1,5 @@
 ---
-title: "HackTM 2020: Hackdex Writeup [RE, Beginner Friendly]"
+title: "HackTM 2020: Hackdex Writeup (RE, Beginner Friendly)"
 classes: wide
 category:
   - ctf
@@ -13,7 +13,7 @@ category:
 ## Introduction
 After the first 24 hours of HackTM-20 playing with pwndevils, I was finished working 
 on all the "Bear" reversing challenges with @fish. I decided it was time to confront 
-my fears and finally reverse a Rust binary. 
+my fears and finally reverse a Rust binary.
 
 ## Overall Understanding 
 Within the first few seconds of getting this binary we do a simple file on the
@@ -146,7 +146,7 @@ with a program that was not finished being developed, so we can assume that this
 area was not meant to be accessed yet. Our new target is the `hex::extra`
 function. Taking a look at it's internals we see offset `0xC6C4`:
 
-```
+```asm
 .text:000000000000C6C4                 cmp     cs:_ZN3dex11PRO_VERSION17h62387400d9c485dbE, 1337h ; dex::PRO_VERSION::h62387400d9c485db
 .text:000000000000C6CF                 jz      loc_C88C
 ```
@@ -402,7 +402,7 @@ HackTM{wh4t_4_cur10us_pow3r_w0rds_h4v3}`
 
 The main portion of the solve script is below: 
 
-```python3
+```python
 BOARDS = {
     0: ["zel", "ann", "rig"],
     1: ["tkl", "bui", "nrf"],
