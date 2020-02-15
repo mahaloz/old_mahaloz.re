@@ -400,5 +400,62 @@ After doing this, we get the final message:
 team work, overcoming yourself, passion and making friends. Have fun!
 HackTM{wh4t_4_cur10us_pow3r_w0rds_h4v3}` 
 
-The solve script can be found
-(here)[https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/hacktm-20] 
+The main portion of the solve is below:
+```python
+def sha256sum(s):
+    sha256 = hashlib.sha256()
+    sha256.update(s.encode("ascii"))
+    return sha256.digest()
+def main():
+    # ===== GENERATE BOGGLE WORDS ===== #
+    for i in range(6):
+        board = BOARDS[i]
+        X = len(board[0])
+        Y = len(board)
+        grid = {}
+        for x in range(X):
+            for y in range(Y):
+                grid[(x, y)] = board[y][x]
+        neighbours = get_neighbours(X, Y, grid)
+        dictionary, stems = get_dictionary()
+        paths = []
+        print_grid(X, Y, grid)
+        words = get_words(grid, paths, stems, dictionary, neighbours)
+        B[i] = [ w for w in words if len(w) > 1 ]
+
+    # ===== FILTER WORDS ===== #
+    with open("hacktm.hdex", "rb") as f:
+        data = f.read()
+    lines = data.split(b"\n")
+    words = set()
+    for line in lines:
+        if not line.strip():
+            continue
+        word = line[ : line.find(b"<br>")]
+        words.add(word.decode("ascii"))
+    for i in range(6):
+        print(len(B[i]), "...")
+        B[i] = list(set(B[i]).intersection(words))
+        print(len(B[i]))
+    target = binascii.unhexlify("F550BAA8068D9C17669E140626A9D7BF13EF0A66662AEB5910FC406BE196A287")
+
+    # ===== FIND THE HASH ====== #
+    for word_0 in B[0]:
+        print(word_0 + "...")
+        for word_1 in B[1]:
+            for word_2 in B[2]:
+                for word_3 in B[3]:
+                    for word_4 in B[4]:
+                        for word_5 in B[5]:
+                            s = word_0 + word_1 + word_2 + word_3 + word_4 + word_5
+                            if len(s) <= 31:
+                                continue
+                            h = sha256sum(s)
+                            if h == target:
+                                print(h, word_0, word_1, word_2, word_3, word_4, word_5)
+if __name__ == "__main__":
+    main()
+```
+
+The full solve script can be found
+[here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/hacktm-20)
