@@ -1,7 +1,7 @@
 ---
 title: "CTF Posts"
 layout: single-category
-permalink: /ctfs/
-category: ctfs
+permalink: /ctf/
+category: ctf 
 author_profile: true
 ---
