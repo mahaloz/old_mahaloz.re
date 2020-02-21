@@ -10,6 +10,8 @@ category:
 > "The binary is still in development. The final version would have let you play
 > boggle"
 
+All the files for this chall, including my solve, can be found [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/hacktm-20).
+
 ## Introduction
 After the first 24 hours of HackTM-20 playing with pwndevils, I was finished working 
 on all the "Bear" reversing challenges with @fish. I decided it was time to confront 
