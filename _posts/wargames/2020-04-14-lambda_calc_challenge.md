@@ -4,7 +4,6 @@ classes: wide
 category:
   - wargames
 ---
-# Lambda Calculus Challenge 1
 
 ## Rules & Background 
 This challenge is broken into three parts, each with growing difficulty. To
