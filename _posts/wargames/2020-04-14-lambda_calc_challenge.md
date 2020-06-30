@@ -26,7 +26,7 @@ functions check out the CSE340 lectures. TODO: Add an external link here, open
 to suggestions.
 
 # Challenge Description
-Consider a stack implementation in $\lambda$-calculus using pairs:
+Consider a stack implementation in $$\lambda$$-calculus using pairs:
 ```
 (a, (b, (c, (d, fls) ) ) )  
 ```
