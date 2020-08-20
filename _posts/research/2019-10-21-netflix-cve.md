@@ -154,7 +154,7 @@ After confirming the fix had been pushed, we created this blog post.
 ## Credit Where Credit is Due
 Finding and triaging this bug would have not been possible without the hardwork
 that engineers put into making Mayhem awesome and without my fellow coworker
-Paul Emge whom spent as much time as I did on this bug. 
+Paul Emge, who spent as much time as I did on this bug. 
 
 ## Other Sources
 The discovery of this bug is also mentioned in [Security
