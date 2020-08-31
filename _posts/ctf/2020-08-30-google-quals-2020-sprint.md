@@ -5,10 +5,10 @@ category:
   - ctf
 ---
 
-# Google Quals CTF 20: A VM written in sprintf and format strings
+# Google Quals CTF 20: A sprintf VM
 ## An overview
-This writeup is based on the `sptint` challenge in google quals 2020. For the
-challenge files, go to the end of the write up :).
+This writeup is based on the `sptint` challenge in google quals 2020. 
+You can find all the challenge files, including our solve, [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/google-quals-20).
 In this challenge, Google introduced us to a new type of instruction set, which in turn allowed us to play a video game completely virtualized in the C language's `sprintf` format strings. 
 Through some reverse engineering, and IDA finagling, we created a disassembler for the sprint arch, which is the name we are declaring for this challenges [ISA](https://en.wikipedia.org/wiki/Instruction_set_architecture).
 
@@ -361,7 +361,7 @@ Putting everything together, we wrote a python script to play the game. Clever r
 
 Our winning movements looked something like this:
 
-![Winning!](./solving_maze.gif)
+![Winning!](/assets/images/solving_maze.gif)
 
 ## Thanks where thanks is due
 This challenge was in no way a one man effort, as you can likely tell from the writing style. This challenge would not have been possible without [kylebot](http://kylebot.net/about/) on Shellphish. We struggled through the night, and he played a huge part in the chall (much more major than I). Also, shoutout to any other people who jumped in the Shellphish Discord and gave their two cents.
