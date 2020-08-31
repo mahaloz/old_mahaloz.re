@@ -2,7 +2,7 @@
 title: "Google Quals 2020: Sprint (RE)"
 classes: wide
 category:
-	- ctf
+  - ctf
 ---
 
 # Google Quals CTF 20: A VM written in sprintf and format strings
