@@ -1,11 +1,14 @@
 ---
-title: "Google Quals CTF 20: Sprint (RE)"
+title: "Google Quals 2020: Sprint (RE)"
 classes: wide
 category:
 	- ctf
 ---
+
 # Google Quals CTF 20: A VM written in sprintf and format strings
 ## An overview
+This writeup is based on the `sptint` challenge in google quals 2020. For the
+challenge files, go to the end of the write up :).
 In this challenge, Google introduced us to a new type of instruction set, which in turn allowed us to play a video game completely virtualized in the C language's `sprintf` format strings. 
 Through some reverse engineering, and IDA finagling, we created a disassembler for the sprint arch, which is the name we are declaring for this challenges [ISA](https://en.wikipedia.org/wiki/Instruction_set_architecture).
 
