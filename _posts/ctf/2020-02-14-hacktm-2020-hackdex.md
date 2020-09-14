@@ -5,8 +5,7 @@ category:
   - ctf
 ---
 
-# HackTM-20: Hackdex
-## Challenge Hint:
+## Challenge Description:
 > "The binary is still in development. The final version would have let you play
 > boggle"
 

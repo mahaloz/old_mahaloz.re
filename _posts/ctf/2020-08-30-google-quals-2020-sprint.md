@@ -5,7 +5,6 @@ category:
   - ctf
 ---
 
-# Google Quals CTF 20: A sprintf VM
 ## An overview
 This writeup is based on the `sprint` challenge in google quals 2020. 
 You can find all the challenge files, including our solve, [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/google-quals-20).
