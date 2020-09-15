@@ -9,13 +9,13 @@ This writeup is based on two challenges from CSAW Quals 2020, `blox1` and `blox2
 
 > We found an old arcade machine lying around, manufactured by the RET2 Corporation. Their devs are notorious for hiding backdoors and easter eggs in their games, care to take a peek?
 
-Challenge link: [ret2systems](https://wargames.ret2.systems/962c162fa1d2ea626d36/csaw_2020)
+***Challenge link***: [ret2systems](https://wargames.ret2.systems/962c162fa1d2ea626d36/csaw_2020)
 
-All challenge file and sove scripts: [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/csaw-quals-20)
+***All challenge files and solve scripts***: [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/csaw-quals-20)
 
-**rev desc**: turn on cheats.
+**rev desc**: "turn on cheats."
 
-**pwn desc**: invalidate the warranty.
+**pwn desc**: "invalidate the warranty."
 
 ## Overview
 We are given the source code to a [tetris](https://en.wikipedia.org/wiki/Tetris) video game that allows cheats if the right tetrominos are placed at specific board locations. If you use the cheats correctly you can cause an overflow outside of the board printed on the screen. The overflow allows a partial [write primitive](https://stackoverflow.com/questions/52827397/what-is-the-meaning-of-write-4-primitive). Upgrading the primitive with writes to the `.text` allows you to get the flag. 
