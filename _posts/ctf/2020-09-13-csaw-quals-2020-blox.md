@@ -1,5 +1,5 @@
 ---
-title: "CSAW Quals 2020: Blox1&2 Writeup (PWN)"
+title: "CSAW Quals 2020: Blox1/2 Writeup (PWN)"
 classes: wide
 category:
   - ctf
@@ -23,11 +23,20 @@ We are given the source code to a [tetris](https://en.wikipedia.org/wiki/Tetris)
 ![](/assets/images/blox_cheats.gif)
 
 As an overview I will cover:
-1. [Reversing cheat mode (brief)](#reversing)
-2. [Searching for vulnerabilities](#searching-for-vulnerabilities) 
-3. [Understand our write primitive](#understanding-our-primitives)
-4. [Upgrading our write primitive](#upgrading-our-write-primitive)
-5. [Shellcoding to win]()
+- [Challenge Description](#challenge-description)
+- [Overview](#overview)
+- [Reversing](#reversing)
+  - [Recon](#recon)
+  - [Static Analysis of the Binary](#static-analysis-of-the-binary)
+  - [Constraint Solving](#constraint-solving)
+- [Searching for Vulnerabilities](#searching-for-vulnerabilities)
+- [Understanding our Primitives](#understanding-our-primitives)
+- [Upgrading our Write Primitive](#upgrading-our-write-primitive)
+  - [Real Arbitrary Pointer](#real-arbitrary-pointer)
+  - [Real Arbitrary Write Values](#real-arbitrary-write-values)
+- [Shellcoding to Victory](#shellcoding-to-victory)
+- [Thanks Where Thanks is Due](#thanks-where-thanks-is-due)
+- [Conclusion](#conclusion)
 
 ## Reversing 
 ### Recon
@@ -36,7 +45,7 @@ So we are playing some sort of modified Tetris:
 ![](/assets/images/blox1_ex1.png)
 
 
-From the description of the challenge we know we want to turn cheats on in this challenge -- though we don't know what that means yet. Taking a quick look at the game source we can see:
+From the description of the challenge we know we want to turn cheats on -- though we don't know what that means yet. Taking a quick look at the game source we can see:
 ```c
 bool cheats_enabled;
 
@@ -63,9 +72,9 @@ This already gives us the direction of this reversing challenge which is reverse
 
 ### Static Analysis of the Binary
 
-At the time we solved this challenge, there was no binary released, so we had to leak it directly from `gdb` interface. This is somewhat trivial since you can just dump all the contents of memory and copy it out select-master style.
+At the time we solved this challenge, there was no binary released, so we had to leak it directly from the ret2systems `gdb` interface. This is somewhat trivial since you can just dump all the contents of memory and copy it out select-master style.
 
-Once we have the binary we can locate to functions that appear to be doing the `check_cheat_codes()` operations at: `0x2537` and `0x261a`. The latter of the two looks something like this:
+Once we have the binary we can locate two functions that appear to be doing the `check_cheat_codes()` operations at: `0x2537` and `0x261a`. The latter of the two looks something like this:
 ```c
 [...]
 
@@ -86,7 +95,7 @@ Both are very similar, and the gist is that they iterate the board doing a type 
 
 ![](https://media.giphy.com/media/l378lYLOhPZVG653y/giphy.gif)
 
-Here is the most important part of the script solve:
+Here is the most important part of the solve script:
 ```python
 def recover_board(counts, hashes):
     def get_val(l, s, r):
@@ -125,7 +134,7 @@ Ah yes, ret2. Now that we know what tetrominos they want in those positions, it'
 
 ![](/assets/images/blox_ex3.png)
 
-Finally, we used that key log in thier custom `pwntools` like interaction invorinment and sent over the payload to get the tetrominos into place:
+Finally, we used that key log in thier custom `pwntools` like interaction environment and sent over the payload to get the tetrominos into place:
 
 ```python
 p = interact.Process()
@@ -142,7 +151,7 @@ Now we get that cash $$$ and end in interactive mode:
 Now that we have the first flag, it's time to move on to the pwn section of this challenge. 
 
 ## Searching for Vulnerabilities 
-Recall from the desctiption that we need to "void the warranty". This is made clear by this in the code:
+Recall from the desctiption that we need to "void the warranty". This is made clear by the code:
 ```
 // magic values for the hardware logging mechanism
 // hacking is grounds for voiding this machine's warranty
@@ -154,7 +163,7 @@ void hw_log(int reason) {
 ```
 This means we need to find a way to call `hw_log`, either through ROPing or Shellcoding. Thus, it's time to look for vulns. 
 
-At this point we have had some decent amount of time reversing the program and understand how most things work at a overview level. One thing that stood out immediately to me is their custom `malloc`, a highly suspect function since `malloc` itself is usually the culprit of many exploitation techniques.
+At this point we have had some decent amount of time reversing the program and understand how most things work. One thing that stood out immediately to me is their custom `malloc`, a highly suspect function since `malloc` itself is usually the culprit of many exploitation techniques.
 
 ```c
 void* heap_top;
@@ -233,7 +242,7 @@ So we have an overflow that allows us to make `heap_top` a value we control, the
 
 Restrictions:
 1. We can only write at max 3 bytes at a time
-2. We can only write upper case ascii values 
+2. We can only write uppercase ascii values 
 3. Limited initial pointer overwrites
    
 On the third point, we can only initially write a value to the pointer that is compromised of the block values:
@@ -249,7 +258,7 @@ On the third point, we can only initially write a value to the pointer that is c
 
 Since to overwrite `heap_top` it had to overflow at the bottom of the board, we noticed that only `J`, `O` and `I` worked really well reliably. This highly constrains what we can actually write, especially the limiting of us to uppercase values.
 
-At this point, we stop and need to think about a cheeky way to do this in a clean and fast way. We need to use our partial write primitive to disable these checks by overwriting the code that checks it. What is the best way to do this?
+At this point, we stop and need to think about a cheeky way to do this in a clean and fast move. We need to use our partial write primitive to disable these checks by overwriting the code that checks it. What is the best way to do this?
 
 ## Upgrading our Write Primitive
 ### Real Arbitrary Pointer
@@ -261,24 +270,24 @@ The first thing we should deal with is finding a way to write more specific valu
     return p;
 ```
 
-where the caller is always `malloc(4)`. This only gets called when we get access `check_high_score()` after we get a new high score. This means we can increment our initial write to `heap_top` by continuously getting new high scores that increments our pointer to wherever we want to go. The only reason this works is because we have the ability to "read nothing" when make a new high score username:
+where the caller is always `malloc(4)`. This only gets called when we get access `check_high_score()` after we get a new high score. This means we can increment our initial write to `heap_top` by continuously getting new high scores that increments our pointer to wherever we want to go. The only reason this works is because we have the ability to "read nothing" when making a new high score username:
 
 ```c
 while ((c = getchar()) != '\n') { ... }
 ```
 
-This is 100% because they won't do anything if we enter only a newline. The only interesting thing about this is that we need to implement an algorithm that gets a new high score every game. This is easy if we alaways place `I` shaped tetrominos to incremeant our score each game. Great, now we can actually move our pointer "anywhere" (that is 4 byte aligned). 
+This is works because the code won't do anything if we enter only a newline. The only interesting thing about this is that we need to implement an algorithm that gets a new high score every game. This is easy if we alaways place `I` shaped tetrominos to incremeant our score each game. Great, now we can actually move our pointer "anywhere" (that is 4 byte aligned). 
 
 ### Real Arbitrary Write Values
 
 Now let's deal with restriction one and two. If we are going to really write anything we need to get passed that check shown earlier. We have two options:
-1. One by one overwrite the values be compared against
+1. One by one overwrite the values being compared against our input
 
 OR
 
 2. Modify code to make us jump directly to the location our read variable gets stored. 
 
-Our solution to this problem came after squinting at the code for a hot second and realizing that we have an amazing situation happening at the jump (if statement) corresponding to the source code line 117:
+Our solution to this problem came after squinting at the code for a hot minute and realizing that we have an amazing situation happening at the jump (if statement) corresponding to the source code line 117:
 ```c
 while ((c = getchar()) != '\n') {
         if (c == '\b' || c == '\x7f') {
@@ -293,7 +302,7 @@ Taking a closer look, the bytes that make up this instruction are:
 ```c
 75 28
 ```
-Recall we are only able to write value between `0x41` and `0x5a`. Currently, this jump takes us to an exit of the loop... but what if we could change where we go when we fail? Consider change the bytes to this:
+Recall we are only able to write values between `0x41` and `0x5a`. Currently, this jump takes us to an exit of the loop... but what if we could change where we go when we fail? Consider changing a the byte to this:
 ```c
 75 50
 ```
@@ -319,22 +328,16 @@ while ((c = getchar()) != '\n') {
 
 Doing this would give us a full write-what-where primitive. 
 
-* explain how to move the pointer better
-* explain what the jump looks like at that location
-* explain overwrite jump
-* explain the plan
-* now we have full write-what-where 
-
 ## Shellcoding to Victory
-Now that we have the full primitive, it's time to finish this challenge up and give us shellcode that calls `log_hw` with the hacking constant. 
+Now that we have the full primitive, it's time to finish this challenge up with shellcode that calls `log_hw` with the hacking constant. 
 
-As a review here is plan of the first part of our exploit:
+As a review here is the plan of the first part of our exploit:
 1. Initialize the `heap_top` to `0x400202` using the overflow
 2. Get `7` high scores back to back while writing no name
    1. This increments `heap_top` to `0x40021e`
 3. On the 7th, write the name `\x50` to the `heap_top` (for the jump)
 
-Now all we need to do is overwrite some other code with shellcode to call the `hw_log()`. Ah, why not just overwrite `heck_high_score()`, since we already have a tetromino setup to get there (`0x40020`). Once we are there, we just need to overwrite the location with some simple code:
+Now all we need to do is overwrite some other code with shellcode to call the `hw_log()`. Ah, why not just overwrite `heck_high_score()`, since we already have a tetromino setup to get there (`0x400202`). Once we are there, we just need to overwrite the location with some simple code:
 ```c
 mov edi, 0x41414141
 call $+0xb6c
@@ -386,14 +389,14 @@ p.sendline("\xBF\x41\x41\x41\x41\xE8\x67\x0B\x00\x00\x90\x90\n")
 new_hs(skip=True)
 ```
 
-With a final solve looking something like this:
+With a final solve looking something like this in the end:
 
 ![](/assets/images/blox_final.gif)
 
 
 
 ## Thanks Where Thanks is Due
-Like I said before, my teammates are what make this solve so successful. I couldn't have done it without: [Paul](https://github.com/pcgrosen), [Nathan (UCSB)](https://github.com/n-wach), [Nathan (ASU)](https://twitter.com/Pascal_0x90), and any other person the jumped into the voice channel to help. Playing with friends is what makes these games fun :). 
+Like I said before, my teammates are what make this solve so successful. I couldn't have done it without: [Paul](https://github.com/pcgrosen), [Nathan (UCSB)](https://github.com/n-wach), [Nathan (ASU)](https://twitter.com/Pascal_0x90), and any other person the jumped into the voice channel to help. Paul came up with the brilliant idea to only overwrite one byte in the jump bytes. Playing with friends is what makes these games enjoyable :). 
 
 ## Conclusion 
 Like earlier, the challenge files and all the solve scripts can be found [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/csaw-quals-20). This CTF had a lot of guessy challenges, but it also had some very well crafted pwn challenges -- like this one by [itzsn](https://github.com/itszn). Overall, I think this CTF was good **for the current times**. It's not easy to organize a CTF with death and fires on the horizon. Thank you NYUSEC. Oh yeah, and we got first overall :).
