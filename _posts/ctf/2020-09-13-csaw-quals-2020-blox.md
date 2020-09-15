@@ -27,7 +27,7 @@ As an overview I will cover:
 2. [Searching for vulnerabilities](#searching-for-vulnerabilities)
 3. [Understand our write primitive](#understanding-our-primitives)
 4. [Upgrading our write primitive](#upgrading-our-write-primitive)
-5. [Shellcoding to win](#shellcoding-to-victory
+5. [Shellcoding to win](#shellcoding-to-victory)
 
 
 ## Reversing 
