@@ -11,12 +11,20 @@ You can find all the challenge files, including our solve, [here](https://github
 In this challenge, Google introduced us to a new type of instruction set, which in turn allowed us to play a video game completely virtualized in the C language's `sprintf` format strings. 
 Through some reverse engineering, and IDA finagling, we created a disassembler for the sprint arch, which is the name we are declaring for this challenges [ISA](https://en.wikipedia.org/wiki/Instruction_set_architecture).
 
+![Winning!](/assets/images/solving_maze.gif)
+
 We break this writeup into sections:
-1. [Investigation](#investigating-the-program)
-2. [Building an Instruction Lifter](#instruction-lifting)
-3. [Making readable assembly: optimizations](#ir-optimization-making-readable-assembly)
-4. [Execution & Decompilation](#decompilation-execution-and-luck)
-5. [Solving a Maze](#finding-a-game-and-beating-it)
+- [An overview](#an-overview)
+- [Investigating the Program](#investigating-the-program)
+  - [A brief review of format strings:](#a-brief-review-of-format-strings)
+- [Instruction Lifting](#instruction-lifting)
+  - [Syntax Parser](#syntax-parser)
+  - [Semantic Parser](#semantic-parser)
+- [IR Optimization: Making Readable Assembly](#ir-optimization-making-readable-assembly)
+- [Decompilation, Execution, and Luck](#decompilation-execution-and-luck)
+- [Finding a Game and Beating It](#finding-a-game-and-beating-it)
+- [Thanks where thanks is due](#thanks-where-thanks-is-due)
+- [Conclusion](#conclusion)
 
 ## Investigating the Program
 Let's start by investigating the program in our disassembler of choice. We are lucky enough to have IDA Pro, but this should be doable in Ghidra. 

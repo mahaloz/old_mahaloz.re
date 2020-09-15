@@ -4,14 +4,14 @@ classes: wide
 category:
   - ctf
 ---
-# CSAW Quals
-
 ## Challenge Description
-This writeup is based on two challenges from CSAW Quals 2020, `blox1` and `blox2` collectively known as the `blox` challenge. `blox1` was the reversing portion, and `blox2` was the pwning portion. My teammates Paul, [Nathan (UCSB)](https://github.com/n-wach), and [Nathan (ASU)](https://twitter.com/Pascal_0x90) solved the majority of `blox1`, so I will focus on the pwning aspect of this challenge.
+This writeup is based on two challenges from CSAW Quals 2020, `blox1` and `blox2` collectively known as the `blox` challenge. `blox1` was the reversing portion, and `blox2` was the pwning portion. My teammates [Paul](https://github.com/pcgrosen), [Nathan (UCSB)](https://github.com/n-wach), and [Nathan (ASU)](https://twitter.com/Pascal_0x90) solved the majority of `blox1`, so I will focus on the pwning aspect of this challenge.
 
 > We found an old arcade machine lying around, manufactured by the RET2 Corporation. Their devs are notorious for hiding backdoors and easter eggs in their games, care to take a peek?
 
 Challenge link: [ret2systems](https://wargames.ret2.systems/962c162fa1d2ea626d36/csaw_2020)
+
+All challenge file and sove scripts: [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/csaw-quals-20)
 
 **rev desc**: turn on cheats.
 
@@ -83,8 +83,10 @@ for ( j = 0; j <= 4; ++j )
 Both are very similar, and the gist is that they iterate the board doing a type of coordinate check for tetrominos at certain positions. To get the exact positions we can do a constraint solve by just iterating all the possible values (brute force).
 
 ### Constraint Solving
+
 ![](https://media.giphy.com/media/l378lYLOhPZVG653y/giphy.gif)
-We the full script can be found with all the challenge files, as listed at the start of the post, but generally here is the script (thank you Paul):
+
+Here is the most important part of the script solve:
 ```python
 def recover_board(counts, hashes):
     def get_val(l, s, r):
@@ -385,14 +387,15 @@ new_hs(skip=True)
 ```
 
 With a final solve looking something like this:
+
 ![](/assets/images/blox_final.gif)
 
 
 
 ## Thanks Where Thanks is Due
-* thank the bois
+Like I said before, my teammates are what make this solve so successful. I couldn't have done it without: [Paul](https://github.com/pcgrosen), [Nathan (UCSB)](https://github.com/n-wach), [Nathan (ASU)](https://twitter.com/Pascal_0x90), and any other person the jumped into the voice channel to help. Playing with friends is what makes these games fun :). 
 
 ## Conclusion 
-This CTF had a lot of guessy challenges, but it also had some very well crafted pwn challenges -- like this one by [itzsn](https://github.com/itszn). Overall, I think this CTF was good **for the current times**. It's not easy to organize a CTF with death and fires on the horizon. Thank you NYUSEC. Oh yeah, and we got first overall :).
+Like earlier, the challenge files and all the solve scripts can be found [here](https://github.com/mahaloz/mahaloz.re/tree/master/writeup_code/csaw-quals-20). This CTF had a lot of guessy challenges, but it also had some very well crafted pwn challenges -- like this one by [itzsn](https://github.com/itszn). Overall, I think this CTF was good **for the current times**. It's not easy to organize a CTF with death and fires on the horizon. Thank you NYUSEC. Oh yeah, and we got first overall :).
 
 ![](/assets/images/blox_scoreboard.png)
