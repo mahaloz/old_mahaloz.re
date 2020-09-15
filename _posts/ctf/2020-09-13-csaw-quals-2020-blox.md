@@ -23,20 +23,12 @@ We are given the source code to a [tetris](https://en.wikipedia.org/wiki/Tetris)
 ![](/assets/images/blox_cheats.gif)
 
 As an overview I will cover:
-- [Challenge Description](#challenge-description)
-- [Overview](#overview)
-- [Reversing](#reversing)
-  - [Recon](#recon)
-  - [Static Analysis of the Binary](#static-analysis-of-the-binary)
-  - [Constraint Solving](#constraint-solving)
-- [Searching for Vulnerabilities](#searching-for-vulnerabilities)
-- [Understanding our Primitives](#understanding-our-primitives)
-- [Upgrading our Write Primitive](#upgrading-our-write-primitive)
-  - [Real Arbitrary Pointer](#real-arbitrary-pointer)
-  - [Real Arbitrary Write Values](#real-arbitrary-write-values)
-- [Shellcoding to Victory](#shellcoding-to-victory)
-- [Thanks Where Thanks is Due](#thanks-where-thanks-is-due)
-- [Conclusion](#conclusion)
+1. [Reversing cheat mode (brief)](#reversing)
+2. [Searching for vulnerabilities](#searching-for-vulnerabilities)
+3. [Understand our write primitive](#understanding-our-primitives)
+4. [Upgrading our write primitive](#upgrading-our-write-primitive)
+5. [Shellcoding to win](#shellcoding-to-victory
+
 
 ## Reversing 
 ### Recon
