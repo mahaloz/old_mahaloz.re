@@ -144,7 +144,7 @@ Now that we have the first flag, it's time to move on to the pwn section of this
 
 ## Searching for Vulnerabilities 
 Recall from the desctiption that we need to "void the warranty". This is made clear by the code:
-```
+```c
 // magic values for the hardware logging mechanism
 // hacking is grounds for voiding this machine's warranty
 #define LOG_CHEATING 0xbadb01
