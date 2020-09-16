@@ -122,7 +122,7 @@ These are the valid positions in the last 5x12 coordinates on the board. By tran
 ![](/assets/images/blox_ex2.png)
 
 Ah yes, ret2. Now that we know what tetrominos they want in those positions, it's just a matter of getting the right blocks in the right order. Since the program initialized with the seed:
-`srand(1);` we kno that each sequence of tetrominos will repeat. For us, this happened after 8 tires. We simply recorded these modes once using their builtin keylogger:
+`srand(1);` we know that each sequence of tetrominos will repeat. For us, this happened after 8 tires. We simply recorded these modes once using their builtin keylogger:
 
 ![](/assets/images/blox_ex3.png)
 
