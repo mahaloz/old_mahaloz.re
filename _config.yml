@@ -4,13 +4,13 @@ minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "
 locale                   : "en-US"
 title                    : "mahaloz.re"
 title_separator          : "-"
-favicon                  : "assets/images/favicon.jpg" 
+favicon                  : "./assets/images/favicon.jpg" 
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "mahaloz"
 description              : "Another technical blog."
 url                      : "https://mahaloz.re"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-teaser                   : "/assets/images/pixel_zion_profile.jpg"
+teaser                   : "./assets/images/favicon.jpg"
 words_per_minute         : 150
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
